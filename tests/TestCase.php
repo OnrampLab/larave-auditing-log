@@ -1,9 +1,9 @@
 <?php
 
-namespace Onramplab\LaravelPackageTemplate\Tests;
+namespace Onramplab\AuditingLog\Tests;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use OnrampLab\LaravelPackageTemplate\LaravelPackageTemplateServiceProvider;
+use Onramplab\AuditingLog\AuditingLogServiceProvider;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
 class TestCase extends OrchestraTestCase
@@ -31,7 +31,7 @@ class TestCase extends OrchestraTestCase
     protected function getPackageProviders($app)
     {
         return [
-            LaravelPackageTemplateServiceProvider::class,
+            AuditingLogServiceProvider::class,
         ];
     }
 }
