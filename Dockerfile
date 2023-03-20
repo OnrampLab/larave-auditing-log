@@ -1,4 +1,4 @@
-FROM thecodingmachine/php:7.4-v4-apache
+FROM thecodingmachine/php:8.0-v4-slim-apache AS php
 
 USER root
 
