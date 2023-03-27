@@ -1,4 +1,4 @@
-ARG PHP_EXTENSIONS="pdo_sqlite"
+ARG PHP_EXTENSIONS="pdo_sqlite intl"
 FROM thecodingmachine/php:8.0-v4-slim-apache AS php
 
 USER root

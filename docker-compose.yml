@@ -4,8 +4,6 @@ services:
   php:
     build: .
     image: php:8.0
-    environment:
-      PHP_EXTENSION_INTL: 1
     volumes:
       - ./:/var/www/html
 
