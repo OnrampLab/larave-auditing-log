@@ -1,10 +1,11 @@
 <?php
 
-namespace Onramplab\LaravelPackageTemplate\Tests;
+namespace Onramplab\AuditingLog\Tests;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use OnrampLab\LaravelPackageTemplate\LaravelPackageTemplateServiceProvider;
+use OnrampLab\AuditingLog\AuditingLogServiceProvider;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
+use Spatie\Activitylog\ActivitylogServiceProvider;
 
 class TestCase extends OrchestraTestCase
 {
@@ -25,13 +26,26 @@ class TestCase extends OrchestraTestCase
     }
 
     /**
+     * Define database migrations.
+     *
+     * @return void
+     */
+    protected function defineDatabaseMigrations()
+    {
+        $this->loadLaravelMigrations();
+        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/Migrations');
+    }
+
+    /**
      * @param \Illuminate\Foundation\Application $app
      * @return array
      */
     protected function getPackageProviders($app)
     {
         return [
-            LaravelPackageTemplateServiceProvider::class,
+            ActivitylogServiceProvider::class,
+            AuditingLogServiceProvider::class,
         ];
     }
 }

@@ -1,17 +1,16 @@
 <?php
 
-namespace OnrampLab\LaravelPackageTemplate;
+namespace OnrampLab\AuditingLog;
 
 use Illuminate\Support\ServiceProvider;
 
-class LaravelPackageTemplateServiceProvider extends ServiceProvider
+class AuditingLogServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '', '');
     }
 
     /**
@@ -20,9 +19,5 @@ class LaravelPackageTemplateServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-
-        $this->publishes([
-            __DIR__ . '' => config_path(''),
-        ], '');
     }
 }

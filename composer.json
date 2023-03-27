@@ -1,17 +1,17 @@
 {
-    "name": "onramplab/laravel-package-template",
-    "description": "An laravel template",
+    "name": "onramplab/laravel-auditing-log",
+    "description": "A Laravel package providing auditing log",
     "type": "library",
     "license": "MIT",
     "keywords": [
-        "template",
+        "auditing",
+        "audit",
         "laravel",
         "package",
-        "skeleton",
-        "boilerplate",
-        "laravel template",
-        "package template",
-        "laravel package template"
+        "log",
+        "laravel package",
+        "laravel audit",
+        "laravel auditing"
     ],
     "authors": [
         {
@@ -22,8 +22,10 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": ">=7.4",
-        "illuminate/support": "^8.0|^9.0"
+        "php": ">=8.0",
+        "doctrine/dbal": "^3.6",
+        "illuminate/support": "^8.0|^9.0",
+        "spatie/laravel-activitylog": "^4.7"
     },
     "require-dev": {
         "mockery/mockery": "^1.5",
@@ -40,12 +42,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Onramplab\\LaravelPackageTemplate\\": "src/"
+            "OnrampLab\\AuditingLog\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "OnrampLab\\LaravelPackageTemplate\\Tests\\": "tests"
+            "OnrampLab\\AuditingLog\\Tests\\": "tests"
         }
     },
     "extra": {
@@ -54,7 +56,7 @@
         },
         "laravel": {
             "providers": [
-                "OnrampLab\\LaravelPackageTemplate\\LaravelPackageTemplateServiceProvider"
+                "OnrampLab\\AuditingLog\\AuditingLogServiceProvider"
             ]
         }
     },
