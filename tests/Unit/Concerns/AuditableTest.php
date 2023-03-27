@@ -3,7 +3,7 @@
 namespace OnrampLab\AuditingLog\Tests\Unit\Concerns;
 
 use Illuminate\Support\Str;
-use OnrampLab\AuditingLog\Concerns\auditable;
+use OnrampLab\AuditingLog\Concerns\Auditable;
 use OnrampLab\AuditingLog\Tests\Classes\User;
 use OnrampLab\AuditingLog\Tests\TestCase;
 use OnrampLab\AuditingLog\ValueObjects\Actor;
