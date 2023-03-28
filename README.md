@@ -8,8 +8,10 @@ A Laravel package providing auditing log
 
 ## Requirements
 
-- PHP >= 7.4;
+- PHP >= 8.0;
 - Laravel >= 8
+- doctrine/dbal >= 3.6
+- spatie/laravel-activitylog >= 4.7
 - composer.
 
 ## Features
