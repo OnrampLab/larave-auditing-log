@@ -26,6 +26,11 @@ trait Auditable
 
     public function logAuditing(): void
     {
+        LogBatch::startBatch();
+        if ($this->auditBatchUuid) {
+            LogBatch::setBatch($this->auditBatchUuid);
+        }
+
         if ($this->auditResourceIds) {
             $this->auditResourceIds->each(function (int|string $resourceId) {
                 $this->logWithBatch($resourceId);
@@ -33,15 +38,11 @@ trait Auditable
         } else {
             $this->logWithBatch();
         }
+        LogBatch::endBatch();
     }
 
     private function logWithBatch(int|string|null $resourceId = null): void
     {
-        LogBatch::startBatch();
-        if ($this->auditBatchUuid) {
-            LogBatch::setBatch($this->auditBatchUuid);
-        }
-
         activity()
             ->withProperties($this->auditActor->properties)
             ->tap(function (Activity $activity) use ($resourceId) {
@@ -49,8 +50,6 @@ trait Auditable
                 $activity->subject_id = $resourceId;
             })
             ->log($this->auditDescription);
-
-        LogBatch::endBatch();
     }
 
     private function getEvent(): string
